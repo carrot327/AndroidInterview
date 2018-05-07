@@ -67,7 +67,7 @@
 　　
 　　看View重要函数部分源码：
 
-```
+```java
 public boolean dispatchTouchEvent(MotionEvent event) {
 //返回true,表示该View内部消化掉了所有事件。返回false，表示View内部只处理了ACTION_DOWN事件，事件继续传递，向上级View(ViewGroup)传递。
 
@@ -91,7 +91,7 @@ public boolean dispatchTouchEvent(MotionEvent event) {
 　如果条件都满足，则该事件被消耗掉，不再进入onTouchEvent中处理。否则将事件将交给onTouchEvent方法处理。
 
 
-```
+```java
  public boolean onTouchEvent(MotionEvent event) {
     ...
  
@@ -127,7 +127,7 @@ public boolean dispatchTouchEvent(MotionEvent event) {
     return false;
 }
 ```
-```
+```java
 public boolean performClick() {
     ...
  ／／
@@ -140,7 +140,7 @@ public boolean performClick() {
     return false;
 }
 ```
-```
+```java
  public void setOnClickListener(OnClickListener l) {
     if (!isClickable()) {
         setClickable(true);
@@ -164,7 +164,7 @@ public boolean performClick() {
 
 　　
 部分源码：
-```
+```java
 public boolean dispatchTouchEvent(MotionEvent ev) {  
        final int action = ev.getAction();  
        final float xf = ev.getX();  
