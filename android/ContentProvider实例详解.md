@@ -1,4 +1,4 @@
-#1.ContentProvider是什么？
+# 1.ContentProvider是什么？
 
 　　ContentProvider（内容提供者）是Android的四大组件之一，管理android以结构化方式存放的数据，以相对安全的方式封装数据（表）并且提供简易的处理机制和统一的访问接口供**其他程序**调用。　
 　　
@@ -6,7 +6,7 @@
 
 　　但注意ContentProvider它也只是一个中间人，真正操作的数据源可能是数据库，也可以是文件、xml或网络等其他存储方式。
 
-#２.URL
+# ２.URL
 
  　　URL（统一资源标识符）代表要操作的数据，可以用来标识每个ContentProvider，这样你就可以通过指定的URI找到想要的ContentProvider,从中获取或修改数据。
  　　在Android中URI的格式如下图所示：
@@ -50,7 +50,7 @@
 >  匹配table3的所有行
 
 　　
-##2.１MIME
+## 2.１MIME
 
  　　MIME是指定某个扩展名的文件用一种应用程序来打开，就像你用浏览器查看PDF格式的文件，浏览器会选择合适的应用来打开一样。Android中的工作方式跟HTTP类似，ContentProvider会根据URI来返回MIME类型，ContentProvider会返回一个包含两部分的字符串。MIME类型一般包含两部分，如：
 
@@ -79,7 +79,7 @@ vnd.android.cursor.item/自定义
 　　在使用Intent时，会用到MIME，根据Mimetype打开符合条件的活动。
 
 　　下面分别介绍Android系统提供了两个用于操作Uri的工具类：ContentUris和UriMatcher。
-##2.２ ContentUris
+## 2.２ ContentUris
 
  　　ContetnUris包含一个便利的函数withAppendedId()来向URI追加一个id。
 
@@ -100,7 +100,7 @@ long personid = ContentUris.parseId(uri);
 //获取的结果为:7
 ```
 
-##2.３UriMatcher
+## 2.３UriMatcher
 
 　　UriMatcher本质上是一个文本过滤器，用在contentProvider中帮助我们过滤，分辨出查询者想要查询哪个数据表。
 
@@ -141,7 +141,7 @@ matcher.addURI("cn.scu.myprovider", "user/#",USER_ID);
     } 
 ``` 
 
-#3.ContentProvider的主要方法
+# 3.ContentProvider的主要方法
 
 　　　
 
@@ -170,7 +170,7 @@ matcher.addURI("cn.scu.myprovider", "user/#",USER_ID);
 
 　　该方法用于返回当前Url所代表数据的MIME类型。
 
-#４.ContentResolver
+# ４.ContentResolver
 
 　　ContentResolver通过URI来查询ContentProvider中提供的数据。除了URI以 外，还必须知道需要获取的数据段的名称，以及此数据段的数据类型。如果你需要获取一个特定的记录，你就必须知道当前记录的ID，也就是URI中D部分。
 
@@ -215,7 +215,7 @@ Uri deleteIdUri = ContentUris.withAppendedId(uri, 2);
 resolver.delete(deleteIdUri, null, null);
 ```
 
-#5.ContentObserver
+# 5.ContentObserver
 
 　　　 ContentObserver(内容观察者)，目的是观察特定Uri引起的数据库的变化，继而做一些相应的处理，它类似于数据库技术中的触发器(Trigger)，当ContentObserver所观察的Uri发生变化时，便会触发它.
 
@@ -286,7 +286,7 @@ public class UserContentProvider extends ContentProvider {
    }
 }
 ```
-#6.实例说明
+# 6.实例说明
 
  　　数据源是SQLite, 用ContentResolver操作ContentProvider。
 
